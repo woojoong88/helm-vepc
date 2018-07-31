@@ -1,0 +1,26 @@
+---
+apiVersion: "kubernetes.com/v1"
+kind: Network
+metadata:
+  name: {{ .Release.Name }}-mgmt-net
+plugin: bridge
+args: '[
+    {
+        "cniVersion": "0.2.0",
+        "bridge": "{{ .Release.Name }}-mgmt-br",
+        "name": "{{ .Release.Name }}-mgmt-net",
+        "type": "bridge",
+        "isGateway": true,
+        "ipMasq": true,
+        "ipam": {
+            "type": "host-local",
+            "subnet": "{{ .Values.MgmtSubnet }}",
+            "routes": [
+                          {
+                              "dst": "0.0.0.0/0"
+                          }
+                      ]
+        },
+        "ifName": "mgmtnet"
+    }
+]'

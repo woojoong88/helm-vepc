@@ -1,0 +1,6 @@
+---
+dependencies:
+- name: nw
+  version: 0.1.0
+  repository: file://../nw
+

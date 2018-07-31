@@ -1,0 +1,20 @@
+---
+apiVersion: "kubernetes.com/v1"
+kind: Network
+metadata:
+  name: {{ .Release.Name }}-vspgw-net
+plugin: bridge
+args: '[
+    {
+        "cniVersion": "0.2.0",
+        "bridge": "{{ .Release.Name }}-vspgw-br",
+        "name": "{{ .Release.Name }}-vspgw-net",
+        "type": "bridge",
+        "isGateway": false,
+        "ipMasq": true,
+        "ipam": {
+            "type": "host-local",
+            "subnet": "{{ .Values.VSPGWSubnet }}"
+        }
+    }
+]'
