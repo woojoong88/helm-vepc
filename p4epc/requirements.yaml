@@ -1,0 +1,14 @@
+---
+dependencies:
+- name: vmme
+  version: 0.1.0
+  repository: file://../vmme
+- name: vspgwc
+  version: 0.1.0
+  repository: file://../vspgwc
+- name: vhss
+  version: 0.1.0
+  repository: file://../vhss
+- name: vhssdb
+  version: 0.1.0
+  repository: file://../vhssdb

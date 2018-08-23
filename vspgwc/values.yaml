@@ -5,8 +5,8 @@
 replicaCount: 1
 
 image:
-  repository: ngic-cp
-  tag: latest
+  repository: ngick8stesting/ngic-cp
+  tag: mwc-p4
   pullPolicy: IfNotPresent
 
 resources: {}

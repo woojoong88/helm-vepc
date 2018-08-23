@@ -5,8 +5,8 @@
 replicaCount: 1
 
 image:
-  repository: vhssdb
-  tag: latest
+  repository: ngick8stesting/c3po-cassandra
+  tag: configmaps-debug
   pullPolicy: IfNotPresent
 
 resources: {}

@@ -19,14 +19,14 @@ spec:
       labels:
         app: {{ template "vspgwc.name" . }}
         release: {{ .Release.Name }}
-      annotations:
-        networks: '[
-                      {"name": "{{.Release.Name}}-vspgw-net"}
-                   ]'
 
     spec:
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          
+          env:
+          - name: "TERM"
+            value: "dumb"
+          tty: true
+          command: ["/usr/bin/top"]
