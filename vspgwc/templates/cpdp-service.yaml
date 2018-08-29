@@ -1,0 +1,19 @@
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "vspgwc.fullname" . }}-vspgwcp
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ template "vspgwc.name" . }}
+    chart: {{ template "vspgwc.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: {{ .Values.services.vspgwcpServiceType }}
+  ports:
+  - name: vspgwcp
+{{ toYaml .Values.services.vspgwcp | indent 4 }}
+  selector:
+    app: {{ template "vspgwc.name" . }}
+    release: {{ .Release.Name }}

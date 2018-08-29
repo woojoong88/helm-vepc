@@ -30,3 +30,12 @@ spec:
             value: "dumb"
           tty: true
           command: ["/usr/bin/top"]
+          volumeMounts:
+          - name: "cp-config"
+            mountPath: "/opt/ngic/config"
+      volumes:
+        - name: "cp-config"
+          hostPath:
+            path: "{{ .Values.configPath }}"
+            type: Directory
+

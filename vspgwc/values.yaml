@@ -6,8 +6,21 @@ replicaCount: 1
 
 image:
   repository: ngick8stesting/ngic-cp
-  tag: mwc-p4
+  tag: mwc-p4-dns
   pullPolicy: IfNotPresent
+
+configPath: /home/ubuntu/ngic/config
+
+namespace: default
+
+services:
+  s11spgwcServiceType: ClusterIP
+  s11spgwc:
+    port: 9997
+  vspgwcpServiceType: ClusterIP
+  vspgwcp:
+    port: 21
+
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

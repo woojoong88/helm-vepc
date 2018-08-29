@@ -9,6 +9,13 @@ image:
   tag: configmaps-debug
   pullPolicy: IfNotPresent
 
+services:
+  s11mmeServiceType: ClusterIP
+  s11mme:
+    port: 21
+    
+namespace: default
+
 nodeSelector: {}
 
 tolerations: []

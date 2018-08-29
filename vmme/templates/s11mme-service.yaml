@@ -1,0 +1,19 @@
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "vmme.fullname" . }}-s1mme
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ template "vmme.name" . }}
+    chart: {{ template "vmme.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: {{ .Values.services.s11mmeServiceType }}
+  ports:
+  - name: s1mme
+{{ toYaml .Values.services.s11mme | indent 4 }}
+  selector:
+    app: {{ template "vmme.name" . }}
+    release: {{ .Release.Name }}
